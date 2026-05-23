@@ -25,6 +25,7 @@ The system is also meant to build a reusable clip dataset over time. Every saved
 app/                  Next.js pages and routes
 components/           UI for guided capture, review, and results
 lib/                  Shared browser-side types, storage, and config
+cad/onshape/          Onshape FeatureScript starter and CAD notes
 analysis_api/         Local FastAPI/OpenCV service
 analysis_api/data/    Saved clip captures and SQLite dataset
 research/             Foam/VTP research notes and follow-up plan
@@ -187,6 +188,18 @@ Each saved record includes:
 - clip family
 - analysis JSON
 - generated spec JSON
+
+## Onshape CAD Handoff
+
+The app now includes a simple Onshape-ready handoff path.
+
+- from the results screen, download the `Onshape JSON` export
+- open the starter files in:
+  - `cad/onshape/dual_wing_extender.fs`
+  - `cad/onshape/README.md`
+- use the exported measurements and extender values to populate the FeatureScript parameters in Onshape
+
+This does not yet create a full live Onshape API integration, but it does give the project a repeatable path from measured clip data to a parametric CAD starting point.
 
 ## Known Limits
 
