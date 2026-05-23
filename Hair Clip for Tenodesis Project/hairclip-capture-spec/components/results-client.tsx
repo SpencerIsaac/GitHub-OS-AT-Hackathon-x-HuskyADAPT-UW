@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
+import { buildOnshapeExport } from "@/lib/onshape";
 import { clearRecord, loadRecord, saveRecord } from "@/lib/storage";
 import { AnalysisResult, CaptureMode, SaveCaptureResponse, SpecResponse } from "@/lib/types";
 
@@ -25,6 +26,16 @@ function prettifyLabel(key: string) {
     .replace(/_mm$/g, "")
     .replaceAll("_", " ")
     .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+function downloadJson(filename: string, payload: object) {
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const anchor = document.createElement("a");
+  anchor.href = url;
+  anchor.download = filename;
+  anchor.click();
+  URL.revokeObjectURL(url);
 }
 
 export function ResultsClient({ mode }: Props) {
@@ -294,6 +305,18 @@ export function ResultsClient({ mode }: Props) {
                     : "The capture library stores images plus measurements so the lab can build a larger clip dataset over time."}
                 </div>
               </div>
+            </div>
+            <div className="buttonRow" style={{ marginTop: 18 }}>
+              <button
+                className="button secondary"
+                type="button"
+                onClick={() => {
+                  if (!analysis || !spec) return;
+                  downloadJson("onshape-dual-wing-extender.json", buildOnshapeExport(analysis, spec));
+                }}
+              >
+                Download Onshape JSON
+              </button>
             </div>
             <details style={{ marginTop: 18 }}>
               <summary className="subtle" style={{ cursor: "pointer" }}>Show raw JSON spec</summary>

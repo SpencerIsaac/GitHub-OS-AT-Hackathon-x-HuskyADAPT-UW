@@ -72,6 +72,7 @@ The database is one of the main outputs of this project. Each saved capture can 
 - `hairclip-capture-spec/`
   - Next.js phone UI
   - Vercel relay routes
+  - Onshape JSON export path
   - local FastAPI/OpenCV backend
   - SQLite-backed capture dataset
 - `project-brief.txt`
@@ -89,16 +90,23 @@ The database is one of the main outputs of this project. Each saved capture can 
 Not fully yet, but there is a realistic path.
 
 - `Current state`
-The app measures and stores dimensions, but it does not yet generate a true 3D model of the clip or the attachment.
+The app measures and stores dimensions, but it does not yet generate a true 3D model of the clip or the attachment automatically.
 
 - `Near-term path`
 Use the measured geometry and generated spec as parameters for a CAD tool like:
+  - Onshape
   - Blender
   - OpenSCAD
   - CadQuery
 
 - `Most realistic next step`
-Generate a simple parametric attachment model from the saved spec values, then preview that model in Blender or another 3D viewer.
+Generate a simple parametric attachment model from the saved spec values, then preview or refine that model in Onshape, Blender, or another 3D viewer.
+
+- `Current repo support`
+The app now includes:
+  - an `Onshape JSON` export from the results screen
+  - a starter FeatureScript at `hairclip-capture-spec/cad/onshape/dual_wing_extender.fs`
+  - a setup note at `hairclip-capture-spec/cad/onshape/README.md`
 
 - `Later option`
 If the image library becomes large enough, the project could explore multi-view reconstruction, mesh-assisted fitting, or ML-supported adaptation, but that should come after the basic mechanical attachment concept is validated.
