@@ -169,6 +169,25 @@ That dataset can later support:
 - tracking which extender geometries actually worked
 - future universal or mesh-informed attachment exploration
 
+## Database Storage
+
+Capture persistence is already wired into the current flow.
+
+- the frontend sends saved results to `POST /api/captures`
+- the relay forwards to the local analysis API
+- the backend writes image files and metadata into:
+  - `analysis_api/data/captures.db`
+  - `analysis_api/data/captures/`
+
+Each saved record includes:
+
+- top image
+- side image
+- mode
+- clip family
+- analysis JSON
+- generated spec JSON
+
 ## Known Limits
 
 - This is a first-pass CV pipeline, not precision reverse engineering.
