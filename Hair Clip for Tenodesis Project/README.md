@@ -85,6 +85,22 @@ The database is one of the main outputs of this project. Each saved capture can 
 - the current spec is only for a `dual-wing-extender` family
 - the capture database is local for now, not yet a shared cloud dataset
 
+## Possible Design Direction
+
+One promising future direction is a `soft-hard hybrid` attachment rather than a fully rigid universal clamp.
+
+- `Concept`
+Two separate silicone sleeves would press onto the clip wings and provide the adaptable contact surface. A harder outer plastic lever or tab structure would attach to those sleeves and provide the actual opening leverage.
+
+- `Why it is interesting`
+This could let the outer assistive mechanism stay more standardized while the silicone interface absorbs variation in clip width, thickness, taper, and curvature.
+
+- `Potential interaction`
+The sleeves could be pressed onto the wings individually, help align a larger actuation target, and then be gently peeled or pulled off after use.
+
+- `Why the database still matters`
+If this direction is explored, the clip library becomes useful for understanding whether one sleeve geometry is enough or whether the project should move toward a small family of sleeve sizes or interface shapes.
+
 ## Seeing The Object In 3D
 
 Not fully yet, but there is a realistic path.
